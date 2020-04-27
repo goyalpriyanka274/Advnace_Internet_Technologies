@@ -2,6 +2,7 @@
 <html>
     <head>
         <meta charset="utf-8">
+        <link href="https://fonts.googleapis.com/css2?family=Oxygen:wght@300&display=swap" rel="stylesheet"> 
         <title>Priyanka JS Assignment</title>
     </head>
     <body>
@@ -10,20 +11,23 @@
         *{
             font-size: 20px;
             font-style: italic;
-            font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+            font-family: 'Oxygen', sans-serif;
         }
+        body{
+        background-color: lightsalmon;
+        }
+        
         </style>
 
-    <h1 style="color: blue; font-size: 26px;">Scores using AJAX</h1>
+    <h1 style="font-size: 26px;">Scores using AJAX</h1>
 
-    
-    <p><b>Overs:</b> <span id="A1"></span></p>
-    <p><b>Balls:</b> <span id="A2"></span></p>
-    <p><b>Runs:</b> <span id="A3"></span></p>
-    <p><b>Batsman:</b> <span id="A4"></span></p>
-    <p><b>Bowler:</b> <span id="A5"></span></p>
+    <div>Overs: <span id="A1"></div>
+    <div>Balls: <span id="A2"></div>
+    <div>Runs: <span id="A3"></span></div>
+    <div>Batsman: <span id="A4"></span></div>
+    <div>Bowler: <span id="A5"></span></div>
 
-    <button onclick="myfunc('Scores.xml')">Update</button>
+    <button onclick="myfunc()">Update</button>
 
     <script>
     var count = 0
