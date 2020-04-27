@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <title>Priyanka JS Assignment</title>
+    </head>
+    <body>
+
+    <style>
+        *{
+            font-size: 20px;
+            font-style: italic;
+            font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+        }
+        </style>
+
+    <h1 style="color: blue; font-size: 26px;">Scores using AJAX</h1>
+
+    
+    <p><b>Overs:</b> <span id="A1"></span></p>
+    <p><b>Balls:</b> <span id="A2"></span></p>
+    <p><b>Runs:</b> <span id="A3"></span></p>
+    <p><b>Batsman:</b> <span id="A4"></span></p>
+    <p><b>Bowler:</b> <span id="A5"></span></p>
+
+    <button onclick="myfunc('Scores.xml')">Update</button>
+
+    <script>
+    var count = 0
+    function myfunc(){
+        var xhttp = new XMLHttpRequest();
+        xhttp.onreadystatechange = function() {
+        if (this.readyState == 4 && this.status == 200) {
+                myFunction(this);
+            }
+        };
+        xhttp.open("GET",'Scores.xml', true);
+        xhttp.send();
+    }
+    function myFunction(xml) {
+        var i;
+        var xmlDoc = xml.responseXML;
+        var x = xmlDoc.getElementsByTagName("delivery");
+        var y = xmlDoc.getElementsByTagName("runs");
+        document.getElementById("A1").textContent = x[count].getElementsByTagName("over")[0].childNodes[0].nodeValue
+
+        document.getElementById("A2").textContent = x[count].getElementsByTagName("ball")[0].childNodes[0].nodeValue
+
+        document.getElementById("A3").textContent = Number(document.getElementById("A3").textContent) + Number(y[count].getElementsByTagName("total")[0].childNodes[0].nodeValue)
+
+        document.getElementById("A4").textContent = x[count].getElementsByTagName("batsman")[0].childNodes[0].nodeValue
+
+        document.getElementById("A5").textContent = x[count].getElementsByTagName("bowler")[0].childNodes[0].nodeValue
+        count += 1
+    
+    }
+
+    </script>
+</body>
+</html>
