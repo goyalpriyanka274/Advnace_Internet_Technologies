@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <link href="https://fonts.googleapis.com/css2?family=Oxygen:wght@300&display=swap" rel="stylesheet"> 
+        <title>Priyanka JQuery Assignment</title>
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script> 
+    </head>
+    <body>
+
+    <style>
+        *{
+            font-size: 20px;
+            font-style: italic;
+            font-family: 'Oxygen', sans-serif;
+        }
+        body{
+            margin-left: 30px;
+        }
+        
+        button{
+            margin-top: 10px;
+        }
+        </style>
+
+    <h1 style="font-size: 40px;">AIT Assignment 2</h1>
+    <h2 style="font-size: 35px;">Implemeting Ajax Using JQuery</h2>
+    <h3 style="font-size: 30px;">LIST OF CITY NAMES <span style="font-size: 20px;">(dynamically updates every 2 seconds)</span></h3>
+
+    <div>
+    <ol id="main-list">
+
+    </ol> </div>
+
+    <button onclick="setInterval(myfunc, 2000)">Start</button>
+
+
+    <script>
+        var item_no = 1
+        function myfunc(){
+            var url = "cities.html " + "li:nth-child(" + item_no + ")"; 
+            var newdiv = "<div id=item-"+item_no+"></div>";
+            $("#main-list").append(newdiv);
+            $("#item-"+item_no).load(url);
+            item_no = item_no + 1;
+        }
+        
+    </script>
+</body>
+</html>
